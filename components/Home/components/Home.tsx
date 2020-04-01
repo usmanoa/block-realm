@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, ScrollView, View, Text, TouchableOpacity, Image } from 'react-native';
 import { Card, WingBlank, WhiteSpace } from '@ant-design/react-native';
 import { MODULES } from '../constants'
-import block from '../../../assets/blockchain.png';
+import blockchain from '../../../assets/blockchain.png';
  
 export default function Home(props) {
     return (
@@ -13,7 +13,7 @@ export default function Home(props) {
                     <Card style={styles.module}> 
                         <Card.Body style={styles.cardBody}>
                             <Image 
-                                source={block}
+                                source={blockchain}
                                 resizeMode= 'cover'
                                 style={styles.thumbnail}
                             />
@@ -31,7 +31,7 @@ export default function Home(props) {
                                 </View>
                             </WingBlank>
                         </Card.Body>
-                    </Card>                    
+                    </Card>                   
                     
                 </WingBlank>
             </ScrollView>
@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
         elevation: 6,
         paddingBottom: 5,
         borderRadius: 20,
-        marginBottom: 10,
+        marginBottom: 15,
         backgroundColor: '#F2F8FC'
     },
     cardBody: {
