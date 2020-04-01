@@ -1,17 +1,15 @@
 import React from 'react';
 import { StyleSheet, ScrollView, View, Text, TouchableOpacity, Image } from 'react-native';
-import Constants from 'expo-constants';
 import { Card, WingBlank, WhiteSpace } from '@ant-design/react-native';
 import { MODULES } from '../constants'
 import block from '../../../assets/blockchain.png';
  
-export default function Home() {
+export default function Home(props) {
     return (
         <View style={styles.container}>
-            <Text style={styles.heading}>{MODULES}</Text>
             <ScrollView >
                 <WingBlank size="md">
-
+                    <WhiteSpace size='lg' />
                     <Card style={styles.module}> 
                         <Card.Body style={styles.cardBody}>
                             <Image 
@@ -24,7 +22,10 @@ export default function Home() {
                                 <View style={styles.moduleDescription}>
                                     <Text style={styles.moduleTitle}>Introduction to Blockchain</Text>
                                     <Text style={styles.lessonCount} >5 lessons</Text>
-                                    <TouchableOpacity style={styles.button}>
+                                    <TouchableOpacity 
+                                        style={styles.button}
+                                        onPress={() => props.navigation.navigate('Lessons')}
+                                    >
                                         <Text style={styles.buttonText}>Begin</Text>
                                     </TouchableOpacity>
                                 </View>
@@ -38,17 +39,13 @@ export default function Home() {
     )
 }
 
+Home.navigationOptions= {
+    headerTintColor: '#1976D2',
+}
+
 const styles = StyleSheet.create({
     container: {
-        paddingTop: Constants.statusBarHeight,
-        flex: 1,
-    },
-    heading: {
-        paddingVertical: 10,
-        paddingHorizontal: 10,
-        fontSize: 20,
-        fontWeight: 'bold',
-        color: '#1976D2'
+        flex: 1
     },
     module: {
         shadowColor:'#000',
@@ -57,8 +54,8 @@ const styles = StyleSheet.create({
         elevation: 6,
         paddingBottom: 5,
         borderRadius: 20,
-        marginVertical: 10,
-        backgroundColor: '#F2F8FC',
+        marginBottom: 10,
+        backgroundColor: '#F2F8FC'
     },
     cardBody: {
         paddingTop: 0,
