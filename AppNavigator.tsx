@@ -1,19 +1,39 @@
-import React, { useEffect } from 'react';
-import { createAppContainer } from 'react-navigation';
-import { createStackNavigator } from 'react-navigation-stack';
-import { components as Home } from './components/Home';
-import { components as ModuleHome } from './components/ModuleHome';
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import { components as ModulesScreen } from './components/ModulesScreen';
+import { components as LessonsScreen } from './components/LessonsScreen';
+import LessonContent from './components/LessonsScreen/components/LessonContent'
 
+// const LessonToContentNavigator = createStackNavigator({
+//     'Lessons': Lessons,
+//     Content: {
+//         screen: LessonContent,
+//         navigationOptions: {
+//             headerTitle: 'Lesson'
+//         }
+//     }
+// },)
 
-const ModuleNavigator = createStackNavigator({
-    'Modules': Home,
-    'Lessons': ModuleHome
-})
+// const ModuleToLessonNavigator = createStackNavigator({
+//     'Modules': Modules,
+//     Lessons: {
+//         screen: LessonToContentNavigator,
+//         navigationOptions: {
+//             headerTintColor: '#1976D2',
+//         }
+//     }
+// })
 
-const Navigator = createAppContainer(ModuleNavigator);
+const Stack = createStackNavigator();
   
 export default function AppNavigator () {
     return(
-        <Navigator />
+        <NavigationContainer>
+            <Stack.Navigator initialRouteName='Modules'>
+                <Stack.Screen name='Modules' component={ModulesScreen} />
+                <Stack.Screen name='Lessons' component={LessonsScreen} />
+            </Stack.Navigator>
+        </NavigationContainer>
     );
 }

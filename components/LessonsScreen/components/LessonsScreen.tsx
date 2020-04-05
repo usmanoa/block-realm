@@ -2,18 +2,21 @@ import React from 'react';
 import { 
     Image, ScrollView, StyleSheet, Text,  TouchableOpacity, View 
 } from 'react-native';
-import { Card, WhiteSpace, WingBlank } from '@ant-design/react-native';
+import { WhiteSpace, WingBlank } from '@ant-design/react-native';
 import bookWhite from '../../../assets/bookWhite.png';
 import quiz from '../../../assets/quiz.png';
 
-export default function ModuleHome () {
+export default function LessonsScreen (props) {
     return (
         <View style={styles.container}>
             <ScrollView>
                 <WhiteSpace size='lg' />
                 <WingBlank size='md'>
                     
-                    <TouchableOpacity style={styles.lesson}>
+                    <TouchableOpacity 
+                        style={styles.lesson}
+                        onPress={() => props.navigation.navigate('Content')}
+                    >
                         <View style={styles.card}> 
                             <View style={styles.cardBody}>
                                 <View style={styles.thumbnailSection}>
@@ -24,7 +27,7 @@ export default function ModuleHome () {
                                     />
                                 </View>
                                 <View style={styles.lessonDetails}>
-                                    <Text style={styles.lessonTitle}>What is BlockChain? </Text>
+                                    <Text style={styles.lessonTitle}>Introduction to Blockchain </Text>
                                     <Text>2 min read</Text>
                                     <Text style={styles.learnText}>Learn</Text>
                                 </View>
@@ -57,9 +60,9 @@ export default function ModuleHome () {
     );
 }
 
-ModuleHome.navigationOptions= {
-    headerTintColor: '#1976D2',
-}
+// LessonsScreen.navigationOptions= {
+//     headerTintColor: '#1976D2',
+// }
 
 const styles = StyleSheet.create({
     container: {
@@ -70,7 +73,7 @@ const styles = StyleSheet.create({
     }, 
     card: {
         borderRadius: 3,
-        height: 90,
+        // height: 90,
         elevation: 3,
     },
     cardBody: {
@@ -86,7 +89,7 @@ const styles = StyleSheet.create({
     thumbnailSection: {
         backgroundColor: '#1976D2',
         width: 70,
-        height: 91,
+        // height: 91,
     },
     thumbnail: {
         width: 40, 
@@ -99,11 +102,13 @@ const styles = StyleSheet.create({
         paddingVertical: 5,
         paddingHorizontal: 10,
         flex: 1,
-        height: 90,
+        // height: 90,
         justifyContent: 'space-between'
     },
     lessonTitle: {
-        fontSize: 20
+        color: '#535353',
+        fontWeight: 'bold',
+        fontSize: 17
     },
     learn: {
         flexDirection: 'row'
@@ -119,10 +124,11 @@ const styles = StyleSheet.create({
         paddingHorizontal: 10,
         flex: 1,
         height: 90,
-        alignItems: 'center'
+        alignItems: 'center',
+        color: '#535353'
     },
     quizText: {
         fontSize: 30,
-        color: "#535353"
+        color: '#535353'
     }
 });

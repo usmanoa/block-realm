@@ -4,7 +4,7 @@ import { Card, WingBlank, WhiteSpace } from '@ant-design/react-native';
 import { MODULES } from '../constants'
 import blockchain from '../../../assets/blockchain.png';
  
-export default function Home(props) {
+export default function ModulesScreen(props) {
     return (
         <View style={styles.container}>
             <ScrollView >
@@ -39,9 +39,9 @@ export default function Home(props) {
     )
 }
 
-Home.navigationOptions= {
-    headerTintColor: '#1976D2',
-}
+// ModulesScreen.navigationOptions= {
+//     headerTintColor: '#1976D2',
+// }
 
 const styles = StyleSheet.create({
     container: {
