@@ -3,26 +3,25 @@ import {   StyleSheet, ScrollView, Text, TouchableOpacity, View } from 'react-na
 
 export default function LeassonContent () {
     return (
-        // <View style={styles.container}>
-            <ScrollView contentContainerStyle={styles.container}>
-                    <View 
-                        style= {{
-                            marginHorizontal: 15,
-                            marginBottom: 50,
-                        }}
-                    >
-                        <Text style={styles.title}>What is Blockchain?</Text>
-                        <Text style={styles.content} >
-                            What is Blockchain? gfgds ggfgfg dffgfgfd fdffdgfs fdfff fdfdf fdfdfd gfgdsdfdfdf
-                            cfffdf ffdfd ddd f fsd df fdfd f fdffddf fdf dfd ffd f ff f ffdf fdf dfd fsfd ffs f fd
-                            dsddsfdf ffd f fkdsjd jhhsjdsa hjfjhsad hj hsad j adsad sadsd 
-                        </Text>
+        <ScrollView contentContainerStyle={styles.container}>
+            <View 
+                style= {{
+                    marginHorizontal: 15,
+                    marginBottom: 50,
+                }}
+            >
+                <Text style={styles.title}>What is Blockchain?</Text>
+                <Text style={styles.content} >
+                    What is Blockchain? gfgds ggfgfg dffgfgfd fdffdgfs fdfff fdfdf fdfdfd gfgdsdfdfdf
+                    cfffdf ffdfd ddd f fsd df fdfd f fdffddf fdf dfd ffd f ff f ffdf fdf dfd fsfd ffs f fd
+                    dsddsfdf ffd f fkdsjd jhhsjdsa hjfjhsad hj hsad j adsad sadsd 
+                </Text>
                         
-                    </View>
-                    <TouchableOpacity style={styles.nextButton}>
-                        <Text style={styles.nextText}>Next Lesson</Text>
-                    </TouchableOpacity>
-            </ScrollView>
+            </View>
+            <TouchableOpacity style={styles.nextButton}>
+                <Text style={styles.nextText}>Next Lesson</Text>
+            </TouchableOpacity>
+        </ScrollView>
     );
 }
 
@@ -51,6 +50,7 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         alignSelf: 'center',
         marginBottom: 10,
+        elevation: 5
     },
     nextText: {
         color: '#FFFFFF',

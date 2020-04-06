@@ -5,43 +5,42 @@ import blockchain from '../../../assets/blockchain.png';
  
 export default function ModulesScreen(props) {
     return (
-        <View style={styles.container}>
-            <ScrollView >
-                <View style={{marginTop: 20, marginHorizontal: 10}}>
+        <ScrollView contentContainerStyle={styles.container}>
+            <View style={{marginTop: 20, marginHorizontal: 10}}>
 
-                    <View style={styles.module}> 
-                        <Image 
-                            source={blockchain}
-                            resizeMode= 'cover'
-                            style={styles.thumbnail}
-                        />
-                        <View style={styles.moduleDescription}>
-                            <Text style={styles.moduleTitle}>Introduction to Blockchain </Text>
-                            <Text style={styles.lessonCount} >5 lessons</Text>
-                            <TouchableOpacity 
-                                style={styles.button}
-                                onPress={() => props.navigation.navigate('Lessons')}
-                            >
-                                <Text style={styles.buttonText}>Begin</Text>
-                            </TouchableOpacity>
-                        </View> 
-                    </View>
-
-                                    
-                    
+                <View style={styles.module}> 
+                    <Image 
+                        source={blockchain}
+                        resizeMode= 'cover'
+                        style={styles.thumbnail}
+                    />
+                    <View style={styles.moduleDescription}>
+                        <Text
+                            numberOfLines={2}
+                            style={styles.moduleTitle}
+                        >
+                            Introduction to Blockchain
+                        </Text>
+                        <Text style={styles.lessonCount} >5 lessons</Text>
+                        <TouchableOpacity 
+                            style={styles.button}
+                            onPress={() => props.navigation.navigate('Lessons')}
+                        >
+                            <Text style={styles.buttonText}>Begin</Text>
+                        </TouchableOpacity>
+                    </View> 
                 </View>
-            </ScrollView>
-        </View>
+                
+
+            </View>
+        </ScrollView>
     )
 }
 
-// ModulesScreen.navigationOptions= {
-//     headerTintColor: '#1976D2',
-// }
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
+        flexGrow: 1,
         backgroundColor: '#FFFFFF'
     },
     module: {
@@ -54,7 +53,7 @@ const styles = StyleSheet.create({
         marginBottom: 25,
         backgroundColor: '#F2F8FC',
         borderTopLeftRadius: 20,
-        borderTopRightRadius: 20
+        borderTopRightRadius: 20,
     },
     thumbnail: {
         width: '100%',

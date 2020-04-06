@@ -2,67 +2,67 @@ import React from 'react';
 import { 
     Image, ScrollView, StyleSheet, Text,  TouchableOpacity, View 
 } from 'react-native';
-import { WhiteSpace, WingBlank } from '@ant-design/react-native';
 import bookWhite from '../../../assets/bookWhite.png';
 import quiz from '../../../assets/quiz.png';
 
 export default function LessonsScreen ({ navigation }) {
     return (
-        <View style={styles.container}>
-            <ScrollView>
-                <WhiteSpace size='lg' />
-                <WingBlank size='md'>
-                    
-                    <TouchableOpacity 
-                        style={styles.lesson}
-                        onPress={() => navigation.navigate('Lesson')}
-                    >
-                        <View style={styles.card}> 
-                            <View style={styles.cardBody}>
-                                <View style={styles.thumbnailSection}>
-                                    <Text style={styles.lessonId}>1</Text>
-                                    <Image 
-                                        source= {bookWhite}
-                                        style={styles.thumbnail}
-                                    />
-                                </View>
-                                <View style={styles.lessonDetails}>
-                                    <Text style={styles.lessonTitle}>Introduction to Blockchain </Text>
-                                    <Text>2 min read</Text>
-                                    <Text style={styles.learnText}>Learn</Text>
-                                </View>
+        <ScrollView contentContainerStyle={styles.container}>
+            <View style={{marginHorizontal: 10, marginTop: 15}}>
+                
+                <TouchableOpacity 
+                    style={styles.lesson}
+                    onPress={() => navigation.navigate('Lesson')}
+                >
+                    <View style={styles.card}> 
+                        <View style={styles.cardBody}>
+                            <View style={styles.thumbnailSection}>
+                                <Text style={styles.lessonId}>1</Text>
+                                <Image 
+                                    source= {bookWhite}
+                                    style={styles.thumbnail}
+                                />
+                            </View>
+                            <View style={styles.lessonDetails}>
+                                <Text
+                                    numberOfLines={2}
+                                    style={styles.lessonTitle}
+                                >
+                                    Introduction to Blockchain
+                                </Text>
+                                <Text>2 min read</Text>
+                                <Text style={styles.learnText}>Learn</Text>
                             </View>
                         </View>
-                    </TouchableOpacity>
-                    
-                    <TouchableOpacity style={styles.lesson}>
-                        <View style={styles.card}> 
-                            <View style={styles.cardBody}>
-                                <View style={styles.thumbnailSection}>
-                                    <Text style={styles.lessonId}>?</Text>
-                                    <Image 
-                                        source= {quiz}
-                                        style={styles.thumbnail}
-                                    />
-                                </View>
-                                <View style={styles.quiz}>
-                                    <Text style={styles.quizText}>Quiz</Text>
-                                    <Text style={styles.learnText}>Test your knoledge</Text>
-                                </View>
+                    </View>
+                </TouchableOpacity>
+                
+                <TouchableOpacity style={styles.lesson}>
+                    <View style={styles.card}> 
+                        <View style={styles.cardBody}>
+                            <View style={styles.thumbnailSection}>
+                                <Text style={styles.lessonId}>?</Text>
+                                <Image 
+                                    source= {quiz}
+                                    style={styles.thumbnail}
+                                />
+                            </View>
+                            <View style={styles.quiz}>
+                                <Text style={styles.quizText}>Quiz</Text>
+                                <Text style={styles.learnText}>Test your knoledge</Text>
                             </View>
                         </View>
-                    </TouchableOpacity>
-
-
-                </WingBlank>
-            </ScrollView>
-        </View>
+                    </View>
+                </TouchableOpacity>
+                    
+            </View>
+        </ScrollView>
     );
 }
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
+        flexGrow: 1,
         backgroundColor: '#FFFFFF'
     },
     lesson: {
@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
     }, 
     card: {
         borderRadius: 3,
-        // height: 90,
+        height: 95,
         elevation: 3,
     },
     cardBody: {
@@ -86,7 +86,7 @@ const styles = StyleSheet.create({
     thumbnailSection: {
         backgroundColor: '#1976D2',
         width: 70,
-        // height: 91,
+        height: 96,
     },
     thumbnail: {
         width: 40, 
@@ -94,13 +94,12 @@ const styles = StyleSheet.create({
         alignSelf: 'center'
     },
     lessonDetails: {
-        // backgroundColor: '#F2F8FC',
         borderWidth: 1,
         borderColor: '#cfd8dc',
         paddingVertical: 5,
         paddingHorizontal: 10,
         flex: 1,
-        // height: 90,
+        height: 95,
         justifyContent: 'space-between'
     },
     lessonTitle: {
@@ -121,7 +120,7 @@ const styles = StyleSheet.create({
         paddingVertical: 5,
         paddingHorizontal: 10,
         flex: 1,
-        height: 90,
+        height: 95,
         alignItems: 'center',
         color: '#535353'
     },
