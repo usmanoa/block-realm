@@ -1,6 +1,5 @@
 import React from 'react';
 import { StyleSheet, ScrollView, View, Text, TouchableOpacity, Image } from 'react-native';
-import { Card, WingBlank, WhiteSpace } from '@ant-design/react-native';
 import { MODULES } from '../constants'
 import blockchain from '../../../assets/blockchain.png';
  
@@ -8,32 +7,29 @@ export default function ModulesScreen(props) {
     return (
         <View style={styles.container}>
             <ScrollView >
-                <WingBlank size="md">
-                    <WhiteSpace size='lg' />
-                    <Card style={styles.module}> 
-                        <Card.Body style={styles.cardBody}>
-                            <Image 
-                                source={blockchain}
-                                resizeMode= 'cover'
-                                style={styles.thumbnail}
-                            />
-                            <WingBlank >
-                                <WhiteSpace />
-                                <View style={styles.moduleDescription}>
-                                    <Text style={styles.moduleTitle}>Introduction to Blockchain</Text>
-                                    <Text style={styles.lessonCount} >5 lessons</Text>
-                                    <TouchableOpacity 
-                                        style={styles.button}
-                                        onPress={() => props.navigation.navigate('Lessons')}
-                                    >
-                                        <Text style={styles.buttonText}>Begin</Text>
-                                    </TouchableOpacity>
-                                </View>
-                            </WingBlank>
-                        </Card.Body>
-                    </Card>                   
+                <View style={{marginTop: 20, marginHorizontal: 10}}>
+
+                    <View style={styles.module}> 
+                        <Image 
+                            source={blockchain}
+                            resizeMode= 'cover'
+                            style={styles.thumbnail}
+                        />
+                        <View style={styles.moduleDescription}>
+                            <Text style={styles.moduleTitle}>Introduction to Blockchain </Text>
+                            <Text style={styles.lessonCount} >5 lessons</Text>
+                            <TouchableOpacity 
+                                style={styles.button}
+                                onPress={() => props.navigation.navigate('Lessons')}
+                            >
+                                <Text style={styles.buttonText}>Begin</Text>
+                            </TouchableOpacity>
+                        </View> 
+                    </View>
+
+                                    
                     
-                </WingBlank>
+                </View>
             </ScrollView>
         </View>
     )
@@ -45,20 +41,18 @@ export default function ModulesScreen(props) {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1
+        flex: 1,
+        backgroundColor: '#FFFFFF'
     },
     module: {
         shadowColor:'#000',
         shadowRadius: 5,
         shadowOffset: {width: 0, height: 0},
         elevation: 6,
-        paddingBottom: 5,
+        paddingBottom: 10,
         borderRadius: 20,
-        marginBottom: 15,
-        backgroundColor: '#F2F8FC'
-    },
-    cardBody: {
-        paddingTop: 0,
+        marginBottom: 25,
+        backgroundColor: '#F2F8FC',
         borderTopLeftRadius: 20,
         borderTopRightRadius: 20
     },
@@ -74,22 +68,25 @@ const styles = StyleSheet.create({
         fontSize: 20,
         fontWeight: 'bold',
         flex: 1,
-        color: "#535353"
+        color: '#535353'
     },
     moduleDescription: {
-        flex: 1
+        flex: 1,
+        paddingTop: 10,
+        paddingHorizontal: 10 
     },
     lessonCount: {
         fontSize: 14,
-        color: "#999",
+        color: '#999',
         paddingTop: 5
     },
     button: {
         backgroundColor: '#1976D2',
         alignSelf: 'flex-end',
-        width: 100,
         borderRadius: 10,
         paddingVertical: 10,
+        paddingHorizontal: 30,
+        marginRight: 5,
         color: '#FFF',
         flexDirection: 'row',
         justifyContent: 'center'
@@ -97,6 +94,7 @@ const styles = StyleSheet.create({
     buttonText : {
         fontWeight: 'bold',
         color: '#FFF',
-        textAlign: 'center'
+        textAlign: 'center',
+        fontSize: 17
     }
 })

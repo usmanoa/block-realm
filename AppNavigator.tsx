@@ -5,35 +5,57 @@ import { components as ModulesScreen } from './components/ModulesScreen';
 import { components as LessonsScreen } from './components/LessonsScreen';
 import LessonContent from './components/LessonsScreen/components/LessonContent'
 
-// const LessonToContentNavigator = createStackNavigator({
-//     'Lessons': Lessons,
-//     Content: {
-//         screen: LessonContent,
-//         navigationOptions: {
-//             headerTitle: 'Lesson'
-//         }
-//     }
-// },)
+const HomeStack = createStackNavigator();
+const LessonStack = createStackNavigator()
 
-// const ModuleToLessonNavigator = createStackNavigator({
-//     'Modules': Modules,
-//     Lessons: {
-//         screen: LessonToContentNavigator,
-//         navigationOptions: {
-//             headerTintColor: '#1976D2',
-//         }
-//     }
-// })
-
-const Stack = createStackNavigator();
+function LessonStackScreen () {
+    return (
+        <LessonStack.Navigator>
+            <LessonStack.Screen
+                name='Lessons'
+                component={LessonsScreen}
+                options= {{
+                    headerTintColor: '#1976D2',
+                }}
+            />
+            <LessonStack.Screen
+                name='Lesson'
+                component={LessonContent}
+                options= {{
+                    headerTintColor: '#1976D2',
+                    headerStyle: {
+                        backgroundColor: '#F2F8FC',
+                        elevation: 0
+                    }
+                }}
+            />
+        </LessonStack.Navigator>
+    )
+}
   
 export default function AppNavigator () {
     return(
         <NavigationContainer>
-            <Stack.Navigator initialRouteName='Modules'>
-                <Stack.Screen name='Modules' component={ModulesScreen} />
-                <Stack.Screen name='Lessons' component={LessonsScreen} />
-            </Stack.Navigator>
+            <HomeStack.Navigator initialRouteName='Modules'>
+                <HomeStack.Screen
+                    name='Modules'
+                    component={ModulesScreen}
+                    options= {{
+                        headerTintColor: '#1976D2'
+                    }}
+                />
+                <HomeStack.Screen
+                    name='Lessons'
+                    component={LessonStackScreen}
+                    options= {{
+                        headerShown: false
+                    }}
+                />
+            </HomeStack.Navigator>
         </NavigationContainer>
     );
 }
+
+// options={{
+//     headerTintColor: '#1976D2',
+// }}

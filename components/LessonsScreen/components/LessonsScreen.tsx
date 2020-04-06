@@ -6,7 +6,7 @@ import { WhiteSpace, WingBlank } from '@ant-design/react-native';
 import bookWhite from '../../../assets/bookWhite.png';
 import quiz from '../../../assets/quiz.png';
 
-export default function LessonsScreen (props) {
+export default function LessonsScreen ({ navigation }) {
     return (
         <View style={styles.container}>
             <ScrollView>
@@ -15,7 +15,7 @@ export default function LessonsScreen (props) {
                     
                     <TouchableOpacity 
                         style={styles.lesson}
-                        onPress={() => props.navigation.navigate('Content')}
+                        onPress={() => navigation.navigate('Lesson')}
                     >
                         <View style={styles.card}> 
                             <View style={styles.cardBody}>
@@ -60,13 +60,10 @@ export default function LessonsScreen (props) {
     );
 }
 
-// LessonsScreen.navigationOptions= {
-//     headerTintColor: '#1976D2',
-// }
-
 const styles = StyleSheet.create({
     container: {
-        flex: 1
+        flex: 1,
+        backgroundColor: '#FFFFFF'
     },
     lesson: {
         marginBottom: 15
@@ -97,6 +94,7 @@ const styles = StyleSheet.create({
         alignSelf: 'center'
     },
     lessonDetails: {
+        // backgroundColor: '#F2F8FC',
         borderWidth: 1,
         borderColor: '#cfd8dc',
         paddingVertical: 5,
