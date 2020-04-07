@@ -1,26 +1,60 @@
-import React from 'react';
-import {   StyleSheet, ScrollView, Text, TouchableOpacity, View } from 'react-native';
+import React, {useState, useEffect} from 'react';
+import {
+    Image, StyleSheet, ScrollView, Text, TouchableOpacity, View
+} from 'react-native';
+import previous from '../../../assets/backBlue.png';
+import next from '../../../assets/forwardBlue.png';
 
-export default function LeassonContent () {
+export default function LeassonContent ({navigation}) {
+    
+    const [index, setIndex] = useState<number | null>(null)
+    const arr:string[] = ['aaa', 'bbb', 'ccc', 'ddd']
+    
+    const previousLesson = () => {
+        let newIndex = index - 1
+        if(newIndex >= 0) {
+            setIndex(newIndex)
+        } else {
+            navigation.navigate('Lessons')
+        }
+    }
+    
+    const nextLesson = () => { 
+        let newIndex = index + 1
+        if(newIndex < arr.length) {
+            setIndex(newIndex)
+        } else {
+            navigation.navigate('Lessons')
+        }
+    }
+
+    useEffect(() => {
+        setIndex(2)
+    }, []);
+
     return (
         <ScrollView contentContainerStyle={styles.container}>
-            <View 
-                style= {{
-                    marginHorizontal: 15,
-                    marginBottom: 50,
-                }}
-            >
+            <View style={styles.contentContainer}>
                 <Text style={styles.title}>What is Blockchain?</Text>
                 <Text style={styles.content} >
-                    What is Blockchain? gfgds ggfgfg dffgfgfd fdffdgfs fdfff fdfdf fdfdfd gfgdsdfdfdf
-                    cfffdf ffdfd ddd f fsd df fdfd f fdffddf fdf dfd ffd f ff f ffdf fdf dfd fsfd ffs f fd
-                    dsddsfdf ffd f fkdsjd jhhsjdsa hjfjhsad hj hsad j adsad sadsd 
+                     {arr[index]}
                 </Text>
                         
             </View>
-            <TouchableOpacity style={styles.nextButton}>
-                <Text style={styles.nextText}>Next Lesson</Text>
-            </TouchableOpacity>
+            <View style={styles.navView}>
+                <TouchableOpacity
+                    onPress={previousLesson}
+                    style={styles.navViewIcon}
+                >
+                    <Image source={previous} />
+                </TouchableOpacity>
+                <TouchableOpacity
+                    onPress={nextLesson}
+                    style={styles.navViewIcon} 
+                >
+                    <Image source={next} />
+                </TouchableOpacity>
+            </View>
         </ScrollView>
     );
 }
@@ -31,6 +65,10 @@ const styles = StyleSheet.create({
         flexGrow: 1, 
         flexDirection: 'column', 
         justifyContent: 'space-between'
+    },
+    contentContainer: {
+        marginHorizontal: 15,
+        marginBottom: 50,
     },
     title: {
         fontWeight: 'bold',
@@ -43,18 +81,16 @@ const styles = StyleSheet.create({
         fontSize: 17,
         lineHeight: 24
     },
-    nextButton: {
-        backgroundColor: '#1976D2',
-        paddingVertical: 13,
-        paddingHorizontal: 70,
-        borderRadius: 10,
+    navView: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        paddingVertical: 5,
         alignSelf: 'center',
+        width: '90%',
         marginBottom: 10,
-        elevation: 5
     },
-    nextText: {
-        color: '#FFFFFF',
-        fontWeight: 'bold',
-        fontSize: 18
-    }
+    navViewIcon: {
+        paddingHorizontal: 10,
+        flexDirection: 'row'
+    },
 })

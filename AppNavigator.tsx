@@ -55,7 +55,3 @@ export default function AppNavigator () {
         </NavigationContainer>
     );
 }
-
-// options={{
-//     headerTintColor: '#1976D2',
-// }}
