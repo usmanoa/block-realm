@@ -4,7 +4,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { components as ModulesScreen } from './components/ModulesScreen';
 import { components as LessonsScreen } from './components/LessonsScreen';
 import { components as QuizScreen } from './components/QuizScreen';
-import LessonContent from './components/LessonsScreen/components/LessonContent'
+import { components as LessonContentScreen } from './components/LessonContentScreen';
 
 const HomeStack = createStackNavigator();
 const LessonStack = createStackNavigator()
@@ -21,7 +21,7 @@ function LessonStackScreen () {
             />
             <LessonStack.Screen
                 name='Lesson'
-                component={LessonContent}
+                component={LessonContentScreen}
                 options= {{
                     headerTintColor: '#1976D2',
                     headerStyle: {
