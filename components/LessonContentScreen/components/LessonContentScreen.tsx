@@ -24,7 +24,7 @@ export default function LeassonContentScreen ({navigation}) {
         if(newIndex < arr.length) {
             setIndex(newIndex)
         } else {
-            navigation.navigate('Lessons')
+            navigation.navigate('Quiz')
         }
     }
 

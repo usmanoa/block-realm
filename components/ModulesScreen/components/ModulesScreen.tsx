@@ -26,7 +26,7 @@ export default function ModulesScreen(props) {
                             style={styles.button}
                             onPress={() => props.navigation.navigate('Lessons')}
                         >
-                            <Text style={styles.buttonText}>Begin</Text>
+                            <Text style={styles.buttonText}>Start</Text>
                         </TouchableOpacity>
                     </View> 
                 </View>
@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#1976D2',
         alignSelf: 'flex-end',
         borderRadius: 10,
-        paddingVertical: 10,
+        paddingVertical: 8,
         paddingHorizontal: 30,
         marginRight: 5,
         color: '#FFF',
