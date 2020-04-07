@@ -20,7 +20,7 @@ function LessonStackScreen () {
                 }}
             />
             <LessonStack.Screen
-                name='Lesson'
+                name='LessonContent'
                 component={LessonContentScreen}
                 options= {{
                     headerTintColor: '#1976D2',
@@ -57,7 +57,7 @@ export default function AppNavigator () {
                     }}
                 />
                 <HomeStack.Screen
-                    name='Lessons'
+                    name='LessonHome'
                     component={LessonStackScreen}
                     options= {{
                         headerShown: false

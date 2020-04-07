@@ -5,14 +5,14 @@ import {
 import bookWhite from '../../../assets/bookWhite.png';
 import quiz from '../../../assets/quiz.png';
 
-export default function LessonsScreen ({ navigation }) {
+export default function LessonsScreen ({ navigation, route }) {
     return (
         <ScrollView contentContainerStyle={styles.container}>
             <View style={{marginHorizontal: 10, marginTop: 15}}>
                 
                 <TouchableOpacity 
                     style={styles.lesson}
-                    onPress={() => navigation.navigate('Lesson')}
+                    onPress={() => navigation.navigate('LessonContent')}
                 >
                     <View style={styles.card}> 
                         <View style={styles.cardBody}>
@@ -57,7 +57,7 @@ export default function LessonsScreen ({ navigation }) {
                         </View>
                     </View>
                 </TouchableOpacity>
-                    
+                <Text style={{fontSize: 50}}>{String(route.params.moduleId)}</Text>
             </View>
         </ScrollView>
     );
