@@ -3,6 +3,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { components as ModulesScreen } from './components/ModulesScreen';
 import { components as LessonsScreen } from './components/LessonsScreen';
+import { components as QuizScreen } from './components/QuizScreen';
 import LessonContent from './components/LessonsScreen/components/LessonContent'
 
 const HomeStack = createStackNavigator();
@@ -21,6 +22,17 @@ function LessonStackScreen () {
             <LessonStack.Screen
                 name='Lesson'
                 component={LessonContent}
+                options= {{
+                    headerTintColor: '#1976D2',
+                    headerStyle: {
+                        backgroundColor: '#F2F8FC',
+                        elevation: 0
+                    }
+                }}
+            />
+            <LessonStack.Screen
+                name='Quiz'
+                component={QuizScreen}
                 options= {{
                     headerTintColor: '#1976D2',
                     headerStyle: {

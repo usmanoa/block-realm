@@ -37,7 +37,10 @@ export default function LessonsScreen ({ navigation }) {
                     </View>
                 </TouchableOpacity>
                 
-                <TouchableOpacity style={styles.lesson}>
+                <TouchableOpacity 
+                    style={styles.lesson}
+                    onPress={() => navigation.navigate('Quiz')}
+                >
                     <View style={styles.card}> 
                         <View style={styles.cardBody}>
                             <View style={styles.thumbnailSection}>
