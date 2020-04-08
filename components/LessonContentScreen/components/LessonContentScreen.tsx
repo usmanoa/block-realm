@@ -4,10 +4,11 @@ import {
 } from 'react-native';
 import previous from '../../../assets/backBlue.png';
 import next from '../../../assets/forwardBlue.png';
+import { data } from '../../../data';
 
 export default function LeassonContentScreen ({navigation, route}) {
     
-    const [index, setIndex] = useState<number | null>(null)
+    const [index, setIndex] = useState(0)
     const arr:string[] = ['aaa', 'bbb', 'ccc', 'ddd']
     
     const previousLesson = () => {
@@ -19,6 +20,9 @@ export default function LeassonContentScreen ({navigation, route}) {
         }
     }
     
+    const module = data.find(({ moduleId }) => moduleId === route.params.moduleId );
+    const lessons = module.lessons;
+
     const nextLesson = () => { 
         let newIndex = index + 1
         if(newIndex < arr.length) {
@@ -29,19 +33,18 @@ export default function LeassonContentScreen ({navigation, route}) {
     }
 
     useEffect(() => {
-        setIndex(2)
+        setIndex((route.params.lessonId) - 1)
     }, []);
 
     return (
         <ScrollView contentContainerStyle={styles.container}>
             <View style={styles.contentContainer}>
-                <Text style={styles.title}>What is Blockchain?</Text>
+                <Text style={styles.title}>{lessons[index].lessonTitle}</Text>
                 <Text style={styles.content} >
-                     {arr[index]}
-                </Text>
-                <Text>{route.params.lessonId}</Text>
-                        
+                     {lessons[index].lessonContent}
+                </Text>            
             </View>
+            
             <View style={styles.navView}>
                 <TouchableOpacity
                     onPress={previousLesson}

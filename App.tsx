@@ -1,8 +1,12 @@
 import React from 'react';
-import {components as WelcomeScreen} from './components/Welcome';
-import { components as Home } from './components/Home'
+// import { Provider } from 'react-redux';
 import AppNavigator from './AppNavigator';
+// import store from './redux/store';
 
 export default function App() {
-    return  <AppNavigator /> 
+    return (
+        // <Provider store={store}>
+            <AppNavigator />
+        // </Provider>
+    ) 
 }

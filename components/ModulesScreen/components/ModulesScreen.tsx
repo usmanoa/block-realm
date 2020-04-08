@@ -1,18 +1,15 @@
 import React from 'react';
-import { StyleSheet, ScrollView, View, Text, TouchableOpacity, Image } from 'react-native';
+import { useDispatch } from 'react-redux'
+import { StyleSheet, ScrollView, View } from 'react-native';
 import Module from './Module';
+// import { GET_MODULES } from '../../../redux/action'
 import blockchain from '../../../assets/blockchain.png';
- 
+import { data } from '../../../data';
+
 /**
  * ModulesScreen displays a list of modules
  */
 export default function ModulesScreen({ navigation }) {
-
-    const arr = [
-        {id: 1, imageUrl: blockchain, title: 'Hello', numberOfLessons: 5},
-        {id: 2, imageUrl: blockchain, title: 'Hello', numberOfLessons: 5},
-        {id: 3, imageUrl: blockchain, title: 'Hello', numberOfLessons: 5}
-    ]
 
     /**
      * Handles onPress event and navigate to the next screen
@@ -26,16 +23,16 @@ export default function ModulesScreen({ navigation }) {
             params: {moduleId: id}
         })
     }
-
+    
     return (
         <ScrollView contentContainerStyle={styles.container}>
             <View style={styles.marginContainer}>
 
-                {arr.map( ({id, imageUrl, title, numberOfLessons}) => (
+                {data.map( ({moduleId, imageUrl, title, numberOfLessons}) => (
                     <Module
-                        key={id}
-                        moduleId={id}
-                        imageUrl={imageUrl}
+                        key={moduleId}
+                        moduleId={moduleId}
+                        imageUrl={blockchain}
                         title={title}
                         numberOfLessons={numberOfLessons}
                         handlePressAction={handlePress}

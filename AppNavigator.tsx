@@ -1,4 +1,4 @@
-import React from 'react';
+import React from  'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { components as ModulesScreen } from './components/ModulesScreen';
@@ -24,6 +24,7 @@ function LessonStackScreen () {
                 component={LessonContentScreen}
                 options= {{
                     headerTintColor: '#1976D2',
+                    headerTitle: 'Lesson',
                     headerStyle: {
                         backgroundColor: '#F2F8FC',
                         elevation: 0
@@ -38,7 +39,7 @@ function LessonStackScreen () {
                     headerStyle: {
                         backgroundColor: '#F2F8FC',
                         elevation: 0
-                    }
+                    },
                 }}
             />
         </LessonStack.Navigator>
@@ -46,6 +47,7 @@ function LessonStackScreen () {
 }
   
 export default function AppNavigator () {
+
     return(
         <NavigationContainer>
             <HomeStack.Navigator initialRouteName='Modules'>

@@ -96,9 +96,9 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between'
     },
     lessonTitle: {
+        paddingTop: 16,
         color: '#535353',
-        fontWeight: 'bold',
-        fontSize: 17
+        fontSize: 18
     },
     learn: {
         flexDirection: 'row'
