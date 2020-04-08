@@ -5,7 +5,7 @@ import {
 import previous from '../../../assets/backBlue.png';
 import next from '../../../assets/forwardBlue.png';
 
-export default function LeassonContentScreen ({navigation}) {
+export default function LeassonContentScreen ({navigation, route}) {
     
     const [index, setIndex] = useState<number | null>(null)
     const arr:string[] = ['aaa', 'bbb', 'ccc', 'ddd']
@@ -39,6 +39,7 @@ export default function LeassonContentScreen ({navigation}) {
                 <Text style={styles.content} >
                      {arr[index]}
                 </Text>
+                <Text>{route.params.lessonId}</Text>
                         
             </View>
             <View style={styles.navView}>

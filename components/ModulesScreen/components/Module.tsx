@@ -5,8 +5,8 @@ import {
 import { START, LESSONS } from '../constants';
  
 type Props = {
-    /** uniques id of a module */
-    id: number,
+    /** unique id of a module */
+    moduleId: number,
     /** Url of module image */
     imageUrl:  any,
     /** Title of module */
@@ -20,7 +20,7 @@ type Props = {
 /**
  * Module component that displays information about a module
  */
-function Module({ id, imageUrl, title, numberOfLessons, handlePressAction }: Props) {
+function Module({ moduleId, imageUrl, title, numberOfLessons, handlePressAction }: Props) {
 
     /**
      * Handles onPress event on the component
@@ -28,7 +28,7 @@ function Module({ id, imageUrl, title, numberOfLessons, handlePressAction }: Pro
      * @function
      */
     const handleOnPress = () => {
-        handlePressAction(id)
+        handlePressAction(moduleId)
     }
 
     return (

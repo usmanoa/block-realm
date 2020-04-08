@@ -4,7 +4,7 @@ import { Radio } from '@ant-design/react-native';
 
 const RadioItem = Radio.RadioItem;
 
-export default function QuizScreen () {
+export default function QuizScreen ({ route }) {
     const [selected, setSelected] = useState<number | null>(null)
     const [checked, setChecked] = useState(false)
     const answers = [

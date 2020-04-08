@@ -33,7 +33,8 @@ export default function ModulesScreen({ navigation }) {
 
                 {arr.map( ({id, imageUrl, title, numberOfLessons}) => (
                     <Module
-                        id={id}
+                        key={id}
+                        moduleId={id}
                         imageUrl={imageUrl}
                         title={title}
                         numberOfLessons={numberOfLessons}
