@@ -9,7 +9,6 @@ import { data } from '../../../data';
 export default function LeassonContentScreen ({navigation, route}) {
     
     const [index, setIndex] = useState(0)
-    const arr:string[] = ['aaa', 'bbb', 'ccc', 'ddd']
     
     const previousLesson = () => {
         let newIndex = index - 1
@@ -25,10 +24,15 @@ export default function LeassonContentScreen ({navigation, route}) {
 
     const nextLesson = () => { 
         let newIndex = index + 1
-        if(newIndex < arr.length) {
+        if(newIndex < lessons.length) {
             setIndex(newIndex)
         } else {
-            navigation.navigate('Quiz')
+            navigation.navigate('LessonHome', {
+                screen: 'Quiz',
+                params: {
+                    moduleId: route.params.moduleId
+                }
+            })
         }
     }
 

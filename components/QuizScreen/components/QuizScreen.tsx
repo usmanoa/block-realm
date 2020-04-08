@@ -1,36 +1,52 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { StyleSheet, ScrollView, Text, TouchableOpacity, View, } from 'react-native';
-import { Radio } from '@ant-design/react-native';
+import { data } from '../../../data';
 
-const RadioItem = Radio.RadioItem;
-
-export default function QuizScreen ({ route }) {
+export default function QuizScreen ({ navigation, route }) {
+    
+    
+    const [questionId, setQuestionId] = useState(1)
     const [selected, setSelected] = useState<number | null>(null)
     const [checked, setChecked] = useState(false)
-    const answers = [
-        {id: 1, text: 'One'},
-        {id: 2, text: 'Two'},
-        {id: 3, text: 'Three'}
-    ]
-    const correctAnswerId = 2
+
+    const module = data.find(({ moduleId }) => moduleId === route.params.moduleId );
+    const questions = module.quiz;
+
+    const question = questions[questionId - 1]
 
     const click = id => setSelected(id)
     const checkAnswer = () => setChecked(true)
 
+    const nextQuestion = () => { 
+        let newQuestionId = questionId + 1
+        if(newQuestionId <= questions.length) {
+            setQuestionId(newQuestionId)
+            setSelected(null)
+            setChecked(false)
+        } else {
+            navigation.popToTop()
+        }
+    }
+
+    useEffect(()=> {
+        setSelected(null)
+        setChecked(false)
+    }, [questionId])
+
     return (
         <ScrollView contentContainerStyle={styles.container}>
             <View style={styles.quiz}>
-
-                <Text style={styles.quizProgress}>1 / 4</Text>
-                <Text style={styles.quizQuestion}>Which of these is not a type of cryptocurrency exchange?</Text>
+            <Text>{questionId}</Text>
+                <Text style={styles.quizProgress}>{`${questionId} /  ${questions.length}`}</Text>
+                <Text style={styles.quizQuestion}>{question.question}</Text>
                 <View style={styles.quizAnswerSection}>
                     
-                    {answers.map( answer => {
-                        const isSelected = selected === answer.id
-                        const isCorrect = answer.id === correctAnswerId
+                    {(question.options).map( option => {
+                        const isSelected = selected === option.id
+                        const isCorrect = option.id === question.correctAnswerId
                         return (
                             <TouchableOpacity
-                                key={answer.id}
+                                key={option.id}
                                 style={ 
                                     {
                                         ...styles.quizAnswer,
@@ -39,9 +55,9 @@ export default function QuizScreen ({ route }) {
                                         ...(checked && isSelected && !isCorrect ? styles.wrong : {}),
                                     } 
                                 }
-                                onPress={() => click(answer.id)}
+                                onPress={() => click(option.id)}
                             >
-                                <Text style={styles.quizAnswerText}>{answer.text}</Text>
+                                <Text style={styles.quizAnswerText}>{option.text}</Text>
                             </TouchableOpacity>
                         )
                         }
@@ -62,7 +78,7 @@ export default function QuizScreen ({ route }) {
                 {checked?
                     <TouchableOpacity
                         style={styles.checkAnswer}
-                        onPress={()=> alert('Next Question')}
+                        onPress={nextQuestion}
                     >
                         <Text style={styles.checkAnswerText}>Continue</Text>
                     </TouchableOpacity>

@@ -38,6 +38,38 @@ Remittances: Due to the ease and low cost of transferring BTC from one party to 
 Trading: Due to the fluctuations in price in the short term, professional traders trade in Bitcoin in the same way that stock or forex is traded
                 `
             },
+        ],
+        quiz : [
+            {
+                id: 1,
+                question: 'What gives Bitcoin its value?',
+                correctAnswerId: 4,
+                options: [
+                    {id: 1, text: 'Limites supply'},
+                    {id: 2, text: 'The marker'},
+                    {id: 3, text: 'Speculation'},
+                    {id: 4, text: 'All of the above'}
+                ]
+            },
+            {
+                id: 2,
+                question: 'How are Bitcin created?',
+                correctAnswerId: 1,
+                options: [
+                    {id: 1, text: 'Mining'},
+                    {id: 2, text: 'By trading'},
+                    {id: 3, text: 'Satoshi summons them'},
+                ]
+            },
+            {
+                id: 3,
+                question: 'True or False: Bitcoin transactions can be reversed',
+                correctAnswerId: 2,
+                options: [
+                    {id: 1, text: 'True'},
+                    {id: 2, text: 'False'},
+                ]
+            }
         ]
     },
     {
